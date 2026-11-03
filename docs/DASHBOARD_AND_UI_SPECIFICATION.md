@@ -133,7 +133,7 @@ Each page below follows the same structure: purpose, users, questions, sections,
 11. **Human approval requirements:** Reallocating/prioritizing orders requires Supply Chain Head approval. AI-drafted email requires human approval before sending; major disruption notice requires final Supply Chain Head approval.
 12. **Navigation/related pages:** Executive Dashboard, Inventory & Manufacturing, Approvals & Decisions, Audit, Analytics.
 13. **States:** Loading; no matching orders; incomplete order data; stale fulfilment status; estimated impact; pending allocation policy; draft/awaiting approval/sent/failed email.
-14. **Synthetic example:** Hospital A—Hyderabad; Hospital B—Bengaluru; Medical Distributor—Mumbai; Export Importer A—Nairobi; Export Importer B—London. Order quantities and dates are not filled from placeholders.
+14. **Synthetic example:** Hospital A—Hyderabad; Hospital B—Bengaluru; Medical Distributor—Mumbai; Export Importer A—Nairobi; Export Importer B—London. The Phase 5 fixture contains one 100,000-tablet order per customer with a 2026-10-15 required date and simulated delivery; these are fictional fixture values, not recurring demand commitments.
 15. **Acceptance criteria:** All five entities can be distinguished as fictional; missing scenario order details remain unavailable; proposals do not change allocation; healthcare-first balanced allocation is labelled provisional; messages cannot be sent before approval.
 
 ### Page 6 — Approvals & Decisions
