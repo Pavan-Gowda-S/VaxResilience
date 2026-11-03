@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:approval-request:1.0.0",
+  "title": "Synthetic approval request",
+  "type": "object",
+  "required": ["approvalRequestId", "recoveryActionId", "actionCategory", "proposalVersion", "submittedBy", "submittedAt", "approverRoleId", "requestState", "idempotencyKey", "dataMode"],
+  "properties": {
+    "approvalRequestId": { "type": "string", "pattern": "^APR-[A-Z0-9-]+$" },
+    "recoveryActionId": { "type": "string", "pattern": "^RA-[A-Z0-9-]+$" },
+    "actionCategory": { "enum": ["alternative_supplier_purchase", "warehouse_transfer", "production_schedule_change", "customer_order_reallocation", "route_carrier_change", "major_customer_disruption_notification", "financial_commitment", "supplier_addition_or_change"] },
+    "proposalVersion": { "type": "integer", "minimum": 1 },
+    "submittedBy": { "type": "string", "pattern": "^USER-[A-Z0-9-]+$" },
+    "submittedAt": { "type": "string", "format": "date-time" },
+    "approverRoleId": { "const": "ROLE-SCH" },
+    "requestState": { "enum": ["preparing", "submitted", "under_review", "needs_changes", "approved", "rejected", "escalated", "expired", "revoked", "cancelled"] },
+    "idempotencyKey": { "type": "string", "minLength": 8, "maxLength": 128 },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

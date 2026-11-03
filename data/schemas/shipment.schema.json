@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:shipment:1.0.0",
+  "title": "Synthetic shipment",
+  "type": "object",
+  "required": ["shipmentId", "purchaseOrderId", "routeId", "carrierRef", "originRef", "destinationRef", "plannedArrival", "revisedArrival", "actualArrival", "shipmentState", "sourceStatus", "dataMode"],
+  "properties": {
+    "shipmentId": { "type": "string", "pattern": "^SHIP-[A-Z0-9-]+$" },
+    "purchaseOrderId": { "type": ["string", "null"], "pattern": "^PO-[A-Z0-9-]+$" },
+    "routeId": { "type": "string", "pattern": "^ROUTE-[A-Z0-9-]+$" },
+    "carrierRef": { "type": ["string", "null"] },
+    "originRef": { "type": "string", "minLength": 1 },
+    "destinationRef": { "type": "string", "minLength": 1 },
+    "plannedArrival": { "type": "string", "format": "date" },
+    "revisedArrival": { "type": ["string", "null"], "format": "date" },
+    "actualArrival": { "type": ["string", "null"], "format": "date" },
+    "shipmentState": { "enum": ["planned", "in_transit", "delayed", "arrived", "cancelled", "unknown"] },
+    "sourceStatus": { "enum": ["verified", "unverified", "synthetic", "simulated", "stale", "unavailable"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

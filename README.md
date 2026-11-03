@@ -114,7 +114,7 @@ The project demonstrates the platform using a fictional pharmaceutical company:
 - **Disruption**: Chinese API supplier factory shutdown causing 30-day shipment delay
 - **Available inventory**: 20 days of API stock
 - **Supply gap**: 10 days of potential uncovered production
-- **Alternative supplier**: Hyderabad-based backup supplier with 10 production days of available stock (subject to quality, regulatory, and capacity verification)
+- **Alternative supplier**: Fictional Hyderabad-based source with 500 kg (10 synthetic production days); the fixture records six passed checks and a simulated receipt for demonstration only
 - **Affected route**: Suzhou/Shanghai, China → Shanghai Port → Nhava Sheva Port, India → Hyderabad facility
 
 ### Customer Impact
@@ -204,17 +204,39 @@ The platform uses a hybrid approach:
 - [docs/DASHBOARD_AND_UI_SPECIFICATION.md](docs/DASHBOARD_AND_UI_SPECIFICATION.md) — Application shell, eight modules, and UI behaviour
 - [docs/USER_JOURNEYS.md](docs/USER_JOURNEYS.md) — Eleven operational user journeys
 
-### Future Documentation Phases (Planned)
-- **Phase 3**: Architecture and Technology
-- **Phase 4**: AI Agents and Governance
-- **Phase 5**: Data and Integrations
-- **Phase 6**: Demonstration and Project Handover
+### Phase 3: Architecture and Technology
+- [docs/04_SYSTEM_ARCHITECTURE.md](docs/04_SYSTEM_ARCHITECTURE.md) — Proposed system boundaries and components
+- [docs/TECH_STACK.md](docs/TECH_STACK.md) — SAP technology baseline and implementation constraints
+- [docs/INTEGRATION_ARCHITECTURE.md](docs/INTEGRATION_ARCHITECTURE.md) — Proposed integration boundaries and adapters
+
+### Phase 4: AI Agents and Governance
+- [docs/05_AGENT_DESIGN.md](docs/05_AGENT_DESIGN.md) — Specialist roles and orchestrator proposal
+- [docs/06_WORKFLOWS_AND_APPROVALS.md](docs/06_WORKFLOWS_AND_APPROVALS.md) — Human approval and recovery workflows
+- [docs/AGENT_TOOL_SPECIFICATIONS.md](docs/AGENT_TOOL_SPECIFICATIONS.md) — Scoped agent tools and authority boundaries
+- [docs/07_SECURITY_AND_AUDIT.md](docs/07_SECURITY_AND_AUDIT.md) — Governance, security, and audit requirements
+
+### Phase 5: Data Model and Integration Contracts
+- [docs/08_DATA_MODEL_AND_DEMO_DATA.md](docs/08_DATA_MODEL_AND_DEMO_DATA.md) — Logical model and synthetic scenario records
+- [docs/DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md) — Proposed SAP HANA schema
+- [docs/API_CONTRACTS.md](docs/API_CONTRACTS.md) — Proposed CAP-facing API contracts
+- [docs/09_INTEGRATIONS.md](docs/09_INTEGRATIONS.md) — Integration status, boundaries, and configuration
+- [data/synthetic/](data/synthetic/) — Fictional, static demonstration fixtures
+- [data/schemas/](data/schemas/) — Draft JSON Schemas for records and API payloads
+- [.env.example](.env.example) — Safe configuration template; contains no credentials
+
+### Phase 6: Demo, Testing, Deployment, and Handover
+- [docs/10_DEMO_RUNBOOK.md](docs/10_DEMO_RUNBOOK.md) — Judge-ready demonstration script and fallbacks
+- [docs/TESTING_STRATEGY.md](docs/TESTING_STRATEGY.md) — Proposed test plan and acceptance criteria
+- [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md) — Proposed SAP BTP deployment sequence
+- [docs/11_DECISIONS_AND_OPEN_QUESTIONS.md](docs/11_DECISIONS_AND_OPEN_QUESTIONS.md) — Unresolved decisions and owners
+- [docs/PROJECT_STATUS.md](docs/PROJECT_STATUS.md) — Honest project status and handover checklist
+- [.github/pull_request_template.md](.github/pull_request_template.md) — Contribution review checklist
 
 ## Current Status
 
-**Project Stage**: Documentation Foundation (Phases 1–2)
+**Project Stage**: Documentation Foundation (Phases 1–6)
 
-This repository contains the project foundation and Phase 2 product and user-experience specifications. The actual application implementation will follow in subsequent phases.
+This repository contains Phase 1–6 project documentation and synthetic fixtures. The application, database, APIs, automated tests, and external integrations are not implemented or deployed.
 
 **What exists now**:
 - Complete project specification and business context
@@ -222,33 +244,30 @@ This repository contains the project foundation and Phase 2 product and user-exp
 - Technology stack selection
 - Human approval and governance framework
 - Phase 2 functional requirements, role/access baseline, UI specification, and user journeys
+- Phase 3 architecture and integration design
+- Phase 4 agent, tool, approval, security, and audit design
+- Phase 5 logical data model, proposed database/API contracts, integration status, and synthetic fixtures
+- Phase 6 demo, testing, deployment, decisions, status, and project handover documentation
 
 **What's planned**:
-- System architecture and integration design
-- AI agent design and tool specifications
-- Data model and API contracts
 - Application implementation
-- Testing and deployment guides
+- Verified SAP service and external-provider connectivity
+- Executable implementation-specific tests and deployment
 
 ## Demonstration Plan
 
-The final demonstration will showcase a complete disruption-to-recovery journey:
+The planned demonstration is a complete disruption-to-recovery journey. It is not currently runnable as an application from this documentation-only repository; see [the Phase 6 runbook](docs/10_DEMO_RUNBOOK.md) for a synthetic-fixture walkthrough and capability boundaries.
 
-1. Display BharatMed's normal supply-chain operations
-2. Trigger Chinese supplier disruption (interactive button)
-3. Show AI detection and analysis
-4. Display inventory exposure on Digital Twin
-5. Identify backup supplier
-6. Show AI agents preparing recovery plan
-7. Supply Chain Head reviews and approves recommendations
-8. Execute approved actions
-9. Demonstrate AI voice call with stakeholder
-10. Show approved supplier/customer emails
-11. Display updated inventory and delivery status
-12. Show complete audit trail
-13. Confirm incident recovery
+1. Walk through the synthetic BharatMed baseline and scenario records.
+2. Present the pre-authored supplier-delay event; a demo control is future application behavior, not present here.
+3. Explain the proposed AI analysis and documented calculation; do not imply a live model ran.
+4. Trace the fictional route and inventory exposure using the static fixtures.
+5. Review the backup-supplier checks and recovery options as synthetic scenario history.
+6. Explain the proposed human approval boundary and protected-action categories.
+7. Walk through simulated execution, communications, and audit records.
+8. Describe the recovery and closure evidence in the fixture.
 
-**Contingency**: Preloaded backup scenario and recorded video available if live APIs are unavailable.
+Use the [Phase 6 runbook](docs/10_DEMO_RUNBOOK.md) for presenter actions and technical evidence. No runnable app or recorded demo video is included in this repository; use the static fixture walkthrough unless a later build is independently verified.
 
 ## Key Principles
 

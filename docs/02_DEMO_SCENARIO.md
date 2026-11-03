@@ -63,7 +63,7 @@ This is **not a real pharmaceutical company**. All information about BharatMed, 
 
 **Lead time:** 30-45 days including international shipping
 
-**Usage rate:** Approximately X kg per production day (to be specified with synthetic data)
+**Synthetic usage rate:** 50 kg API per production day, based on 100,000 synthetic tablets/day at 0.0005 kg API/tablet.
 
 ---
 
@@ -82,9 +82,9 @@ This is **not a real pharmaceutical company**. All information about BharatMed, 
 ### Shipment Details
 
 **Affected shipment:**
-- **Original delivery date:** [Date] (to be specified in demo)
-- **Revised delivery estimate:** +30 days from original
-- **Shipment quantity:** [X] kg of Paracetamol API
+- **Original delivery date:** 2026-09-01 (synthetic fixture)
+- **Revised delivery estimate:** 2026-10-01, 30 calendar days after the original ETA (simulated fixture)
+- **Shipment quantity:** 1,500 kg of Paracetamol API on the primary purchase order (synthetic fixture)
 - **Shipment route:** Suzhou/Shanghai region → Shanghai Port → Nhava Sheva Port, India → Hyderabad facility
 
 **Notification received:** Day 0 of scenario timeline
@@ -98,8 +98,8 @@ This is **not a real pharmaceutical company**. All information about BharatMed, 
 **Current API inventory at BharatMed:** 20 days of production coverage
 
 **Calculation basis:**
-- Current stock quantity: [X] kg
-- Daily production consumption: [Y] kg
+- Current stock quantity: 1,000 kg
+- Daily production consumption: 50 kg per production day
 - Coverage period: 20 production days
 
 ### Supply Exposure
@@ -149,24 +149,26 @@ Before this stock can be used, the following verifications are required:
 - Import/export licenses (if applicable)
 - Product registration status
 
-#### 3. Quantity and Capacity Verification
+#### 3. Quantity Verification
 - Actual available quantity confirmation
 - Reserved vs. available stock clarification
-- Lead time for delivery
-- Minimum order quantity requirements
 
-#### 4. Supplier Confirmation
+#### 4. Capacity Verification
+- Supplier capacity and feasible production/fulfilment quantity
+- Lead time and minimum order quantity where applicable
+
+#### 5. Supplier Confirmation
 - Supplier willingness to sell
-- Pricing negotiation
-- Delivery terms
-- Payment terms
+- Commercial terms are not populated in the synthetic fixtures and must not be invented
 
-#### 5. Logistics Feasibility
+#### 6. Delivery Feasibility
 - Transportation time Hyderabad → BharatMed facility
 - Packaging and handling requirements
 - Delivery scheduling
 
 **Until all verifications are complete, the backup supplier stock cannot be counted as confirmed coverage for the 10-day gap.**
+
+The Phase 5 fixture records six passed checks, a version-bound Supply Chain Head approval, and a simulated 500 kg receipt for this fictional scenario only. These records are pre-authored demonstration history, not real qualification evidence, a live supplier confirmation, or a live purchase. At the scenario's initial evaluation point, the stock remains unverified until the six checks are recorded.
 
 ---
 
@@ -218,36 +220,36 @@ All customer organizations are **fictional demonstration entities** created for 
 - **Location:** Hyderabad, India
 - **Type:** Multi-specialty hospital
 - **Relationship:** Direct supply agreement
-- **Typical order volume:** [X] units per month
-- **Current order status:** [To be specified in demo]
+- **Synthetic demo order:** 100,000 tablets; recurring typical volume is not specified
+- **Current order status:** Fulfilled in the synthetic simulation on 2026-10-15
 
 #### 2. Hospital B
 - **Location:** Bengaluru, India
 - **Type:** General hospital
 - **Relationship:** Direct supply agreement
-- **Typical order volume:** [X] units per month
-- **Current order status:** [To be specified in demo]
+- **Synthetic demo order:** 100,000 tablets; recurring typical volume is not specified
+- **Current order status:** Fulfilled in the synthetic simulation on 2026-10-15
 
 #### 3. Medical Distributor
 - **Location:** Mumbai, India
 - **Type:** Pharmaceutical distributor serving retail pharmacies
 - **Relationship:** Distribution agreement
-- **Typical order volume:** [X] units per month
-- **Current order status:** [To be specified in demo]
+- **Synthetic demo order:** 100,000 tablets; recurring typical volume is not specified
+- **Current order status:** Fulfilled in the synthetic simulation on 2026-10-15
 
 #### 4. Export Importer A
 - **Location:** Nairobi, Kenya
 - **Type:** Import and distribution
 - **Relationship:** Export supply agreement
-- **Typical order volume:** [X] units per quarter
-- **Current order status:** [To be specified in demo]
+- **Synthetic demo order:** 100,000 tablets; recurring typical volume is not specified
+- **Current order status:** Fulfilled in the synthetic simulation on 2026-10-15
 
 #### 5. Export Importer B
 - **Location:** London, United Kingdom
 - **Type:** Import and distribution
 - **Relationship:** Export supply agreement
-- **Typical order volume:** [X] units per quarter
-- **Current order status:** [To be specified in demo]
+- **Synthetic demo order:** 100,000 tablets; recurring typical volume is not specified
+- **Current order status:** Fulfilled in the synthetic simulation on 2026-10-15
 
 ---
 
@@ -366,13 +368,18 @@ All customer organizations are **fictional demonstration entities** created for 
 
 ### Actions Requiring Explicit Authorization
 
-Throughout the recovery workflow, the following actions **always require human approval** before execution:
+Throughout the recovery workflow, these eight action categories **always require Supply Chain Head final human approval** before execution:
 
-1. **Purchase from alternative supplier** — Procurement Manager + Supply Chain Head approval
-2. **Inventory allocation decisions** — Supply Chain Head approval
-3. **Production schedule changes** — Factory Manager + Supply Chain Head approval
-4. **Major customer communications** — Customer/Export Manager + Supply Chain Head approval
-5. **Financial commitments** — Procurement Manager + Supply Chain Head approval
+1. Purchase from an alternative supplier.
+2. Transfer inventory between warehouses.
+3. Change a factory production schedule.
+4. Prioritize or reallocate customer orders.
+5. Change shipment routes or carriers.
+6. Send a major disruption notification to customers.
+7. Approve a payment or financial commitment.
+8. Add or change an approved supplier.
+
+Operational managers provide relevant reviews and evidence; those reviews do not replace the Supply Chain Head's final approval.
 
 **AI Role:** Prepare recommendations, draft communications, provide supporting analysis
 
@@ -384,7 +391,7 @@ Throughout the recovery workflow, the following actions **always require human a
 
 ### Internal Voice Calls
 
-**AI-initiated or participated calls with:**
+**Human-requested AI-assisted calls with:**
 - Supply Chain Head — Overall situation briefing and approval coordination
 - Procurement Manager — Supplier evaluation and purchase recommendation
 - Factory Manager — Production schedule impact and adjustment feasibility
@@ -484,22 +491,24 @@ Throughout the recovery workflow, the following actions **always require human a
 | Available inventory | 20 days coverage | Synthetic demo input | Calculated from stock and consumption |
 | Potential supply gap | 10 days | Calculated from scenario inputs | 30 days delay - 20 days inventory |
 | Backup supplier location | Hyderabad, India | Fictional demo entity | Domestic alternative advantage |
-| Backup available stock | 10 production days | Synthetic demo input, **requires verification** | Subject to quality, regulatory, capacity confirmation |
+| Backup available stock | 500 kg / 10 production days | Synthetic fixture reports passed checks and a simulated receipt | Fictional demo state only; six checks and human approval do not qualify a real supplier |
 | Customer organizations | 5 fictional entities | Fictional demo entities | 2 hospitals, 1 distributor, 2 export importers |
 | Affected route | China → Shanghai Port → Nhava Sheva Port → Hyderabad | Synthetic demo route | Realistic international logistics path |
 
 ### Important Calculation
 
-**The 10-day potential supply gap is calculated as:**
+**The scenario's 10-day potential supply gap is calculated as:**
 
 ```
 Shipment delay (30 days) - Available inventory coverage (20 days) = 10 days exposure
 ```
 
-**The backup supplier's 10 production days of stock:**
+The fixture expresses shipment lateness as 30 calendar days and opening inventory coverage as 20 production days. The 10-day result follows the project's documented planning-day comparison; a production calendar/day-basis conversion is not defined. It is an unresolved modelling assumption, not a calendar-aware forecast.
+
+**The backup supplier's reported 500 kg (10 synthetic production days) of stock:**
 - **Must not** be treated as guaranteed coverage
 - **Must not** be automatically subtracted from the 10-day gap
-- **Requires** quality, regulatory, capacity, and supplier verification before use
+- **Requires** all six quality, regulatory, quantity, capacity, supplier-confirmation, and delivery checks before it can inform an operational plan
 - **May not** cover the full 10-day gap depending on actual availability and lead time
 
 ---
@@ -508,21 +517,23 @@ Shipment delay (30 days) - Available inventory coverage (20 days) = 10 days expo
 
 ### Planned Demo Flow (15-20 minutes)
 
+This is the target product flow, not current application behavior. The repository-only walkthrough uses static synthetic records; demonstrate an interactive step only from a separately verified, isolated build.
+
 **Minute 0-2: Normal Operations**
 - Show BharatMed's dashboard in normal state
 - Display supply chain digital twin
 - Show current inventory and production status
 
 **Minute 2-3: Disruption Trigger**
-- Use interactive button to trigger Chinese supplier disruption
-- Show alert appearing in AI War Room
-- Display notification to Supply Chain Head
+- In a future isolated application build, use a clearly labelled demo control to trigger the synthetic Chinese supplier disruption
+- For a static walkthrough, show the pre-authored shipment delay and incident records
+- Do not imply real external disruption detection or live notification
 
 **Minute 3-5: AI Analysis**
-- Show AI agents analyzing the disruption
-- Display inventory coverage calculation (20 days)
-- Highlight 10-day potential supply gap
-- Show disrupted route on Digital Twin
+- Present the documented analysis and synthetic fixture summary; show runtime agent output only if a verified build exists
+- Explain the inventory coverage input (20 production days)
+- Highlight the documented 10-day potential comparison and its unresolved day-basis assumption
+- Trace the disrupted route in the conceptual Digital Twin or fixture
 
 **Minute 5-7: Alternative Supplier Evaluation**
 - Show AI identifying Hyderabad backup supplier
@@ -615,6 +626,6 @@ Shipment delay (30 days) - Available inventory coverage (20 days) = 10 days expo
 
 ---
 
-**Document Status:** Phase 1 Complete  
-**Next Phase:** Product Requirements and User Experience (Phase 2)  
+**Document Status:** Phase 1 source scenario; later phases add concrete synthetic fixture values and implementation-ready handover material.
+**Current repository status:** See [PROJECT_STATUS.md](PROJECT_STATUS.md).
 **Maintained By:** VaxResilience Project Team

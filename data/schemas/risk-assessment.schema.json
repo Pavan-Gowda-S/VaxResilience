@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:risk-assessment:1.0.0",
+  "title": "Synthetic risk assessment",
+  "type": "object",
+  "required": ["riskAssessmentId", "disruptionId", "assessedAt", "riskType", "severity", "summary", "method", "inputRefs", "assessmentState", "dataMode"],
+  "properties": {
+    "riskAssessmentId": { "type": "string", "pattern": "^RISK-[A-Z0-9-]+$" },
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "assessedAt": { "type": "string", "format": "date-time" },
+    "riskType": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "severity": { "enum": ["low", "medium", "high", "critical", "unknown"] },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+    "method": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "inputRefs": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "assessmentState": { "type": "string", "minLength": 1 },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

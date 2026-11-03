@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:production-consumption:1.0.0",
+  "title": "Synthetic production material consumption",
+  "type": "object",
+  "required": ["consumptionId", "productionBatchId", "materialId", "inventoryBatchId", "quantity", "unit", "consumedAt", "dataMode"],
+  "properties": {
+    "consumptionId": { "type": "string", "pattern": "^PC-[A-Z0-9-]+$" },
+    "productionBatchId": { "type": "string", "pattern": "^PB-[A-Z0-9-]+$" },
+    "materialId": { "type": "string", "pattern": "^MAT-[A-Z0-9-]+$" },
+    "inventoryBatchId": { "type": "string", "pattern": "^BATCH-[A-Z0-9-]+$" },
+    "quantity": { "type": "number", "minimum": 0 },
+    "unit": { "type": "string", "minLength": 1, "maxLength": 20 },
+    "consumedAt": { "type": "string", "format": "date-time" },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

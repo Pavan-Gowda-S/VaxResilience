@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:customer-order:1.0.0",
+  "title": "Synthetic customer order",
+  "type": "object",
+  "required": ["customerOrderId", "customerId", "orderedAt", "requiredDeliveryDate", "orderState", "dataMode"],
+  "properties": {
+    "customerOrderId": { "type": "string", "pattern": "^ORD-[A-Z0-9-]+$" },
+    "customerId": { "type": "string", "pattern": "^CUST-[A-Z0-9-]+$" },
+    "orderedAt": { "type": "string", "format": "date-time" },
+    "requiredDeliveryDate": { "type": "string", "format": "date" },
+    "orderState": { "enum": ["open", "at_risk", "part_fulfilled", "fulfilled", "cancelled"] },
+    "currency": { "type": ["string", "null"], "pattern": "^[A-Z]{3}$" },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

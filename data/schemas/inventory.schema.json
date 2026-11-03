@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:inventory:1.0.0",
+  "title": "Synthetic inventory position snapshot",
+  "type": "object",
+  "required": ["inventoryId", "materialId", "warehouseId", "batchId", "quantity", "unit", "asOf", "coverageDays", "sourceStatus", "dataMode"],
+  "properties": {
+    "inventoryId": { "type": "string", "pattern": "^INV-[A-Z0-9-]+$" },
+    "materialId": { "type": "string", "pattern": "^MAT-[A-Z0-9-]+$" },
+    "warehouseId": { "type": "string", "pattern": "^WH-[A-Z0-9-]+$" },
+    "batchId": { "type": ["string", "null"], "pattern": "^BATCH-[A-Z0-9-]+$" },
+    "quantity": { "type": "number", "minimum": 0 },
+    "unit": { "type": "string", "minLength": 1, "maxLength": 20 },
+    "asOf": { "type": "string", "format": "date-time" },
+    "coverageDays": { "type": ["number", "null"], "minimum": 0 },
+    "sourceStatus": { "enum": ["verified", "unverified", "synthetic", "simulated", "stale", "unavailable"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

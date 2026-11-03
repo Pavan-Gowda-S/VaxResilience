@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:api-response-envelope:1.0.0",
+  "title": "Proposed API success response envelope",
+  "type": "object",
+  "required": ["data", "meta"],
+  "properties": {
+    "data": {},
+    "meta": {
+      "type": "object",
+      "required": ["requestId", "correlationId"],
+      "properties": {
+        "requestId": { "type": "string", "minLength": 1 },
+        "correlationId": { "type": "string", "minLength": 1 },
+        "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] },
+        "sourceStatus": { "enum": ["verified", "unverified", "synthetic", "simulated", "stale", "unavailable"] },
+        "page": {
+          "type": "object",
+          "properties": {
+            "limit": { "type": "integer", "minimum": 1 },
+            "nextCursor": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

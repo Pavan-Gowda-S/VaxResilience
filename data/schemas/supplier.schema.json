@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:supplier:1.0.0",
+  "title": "Synthetic supplier record",
+  "type": "object",
+  "required": ["supplierId", "organizationId", "name", "countryCode", "city", "supplierState", "sourceStatus", "dataMode"],
+  "properties": {
+    "supplierId": { "type": "string", "pattern": "^SUP-[A-Z0-9-]+$" },
+    "organizationId": { "type": "string", "pattern": "^ORG-[A-Z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "city": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "supplierState": { "enum": ["candidate", "active_demo", "qualified_demo_only", "suspended", "inactive"] },
+    "sourceStatus": { "enum": ["verified", "unverified", "synthetic", "simulated", "stale", "unavailable"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

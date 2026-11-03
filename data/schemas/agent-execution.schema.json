@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:agent-execution:1.0.0",
+  "title": "Synthetic bounded agent execution",
+  "type": "object",
+  "required": ["agentExecutionId", "agentId", "disruptionId", "taskId", "startedAt", "completedAt", "executionState", "summary", "evidenceRefs", "failureCode", "dataMode"],
+  "properties": {
+    "agentExecutionId": { "type": "string", "pattern": "^EXEC-[A-Z0-9-]+$" },
+    "agentId": { "type": "string", "pattern": "^AGENT-[A-Z0-9-]+$" },
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "taskId": { "type": "string", "pattern": "^TASK-[A-Z0-9-]+$" },
+    "startedAt": { "type": "string", "format": "date-time" },
+    "completedAt": { "type": ["string", "null"], "format": "date-time" },
+    "executionState": { "enum": ["queued", "running", "succeeded", "partial", "failed", "timed_out", "cancelled"] },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+    "failureCode": { "type": ["string", "null"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

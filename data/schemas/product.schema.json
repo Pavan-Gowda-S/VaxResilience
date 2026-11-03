@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:product:1.0.0",
+  "title": "Synthetic finished product",
+  "type": "object",
+  "required": ["productId", "organizationId", "productName", "strength", "dosageForm", "baseUnit", "productState", "dataMode"],
+  "properties": {
+    "productId": { "type": "string", "pattern": "^PRD-[A-Z0-9-]+$" },
+    "organizationId": { "type": "string", "pattern": "^ORG-[A-Z0-9-]+$" },
+    "productName": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "strength": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "dosageForm": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "baseUnit": { "type": "string", "minLength": 1, "maxLength": 20 },
+    "productState": { "enum": ["active", "inactive"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

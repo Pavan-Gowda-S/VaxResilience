@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:dataset-manifest:1.0.0",
+  "title": "Synthetic dataset manifest",
+  "type": "object",
+  "required": ["datasetId", "schemaVersion", "scenarioId", "title", "dataMode", "fictionalDisclaimer", "scenarioStart", "scenarioEnd", "scenarioAnchorDate", "scenarioFacts", "demoPolicies", "fixtureFiles"],
+  "properties": {
+    "datasetId": { "type": "string", "minLength": 1 },
+    "schemaVersion": { "const": "1.0.0" },
+    "scenarioId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "dataMode": { "const": "synthetic" },
+    "fictionalDisclaimer": { "type": "string", "minLength": 30 },
+    "scenarioStart": { "type": "string", "format": "date-time" },
+    "scenarioEnd": { "type": "string", "format": "date-time" },
+    "scenarioAnchorDate": { "type": "string", "format": "date" },
+    "scenarioFacts": { "type": "object" },
+    "demoPolicies": { "type": "array", "items": { "type": "object" } },
+    "fixtureFiles": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

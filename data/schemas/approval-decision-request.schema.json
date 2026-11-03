@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:approval-decision-request:1.0.0",
+  "title": "Proposed human approval decision request",
+  "type": "object",
+  "required": ["decision", "proposalVersion"],
+  "properties": {
+    "decision": { "enum": ["approve", "reject", "request_changes", "escalate", "revoke"] },
+    "proposalVersion": { "type": "integer", "minimum": 1 },
+    "reason": { "type": "string", "maxLength": 1000 }
+  },
+  "additionalProperties": false
+}

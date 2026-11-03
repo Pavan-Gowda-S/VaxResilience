@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:disruption:1.0.0",
+  "title": "Synthetic disruption incident",
+  "type": "object",
+  "required": ["disruptionId", "organizationId", "title", "productId", "supplierId", "shipmentId", "detectedAt", "reportedDelayDays", "incidentState", "sourceStatus", "dataMode", "closedAt", "closureDecisionBy", "closureEvidenceRefs"],
+  "properties": {
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "organizationId": { "type": "string", "pattern": "^ORG-[A-Z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "productId": { "type": "string", "pattern": "^PRD-[A-Z0-9-]+$" },
+    "supplierId": { "type": "string", "pattern": "^SUP-[A-Z0-9-]+$" },
+    "shipmentId": { "type": ["string", "null"], "pattern": "^SHIP-[A-Z0-9-]+$" },
+    "detectedAt": { "type": "string", "format": "date-time" },
+    "reportedDelayDays": { "type": "number", "minimum": 0 },
+    "incidentState": { "enum": ["monitoring", "recovery_in_progress", "recovered", "closed"] },
+    "sourceStatus": { "enum": ["verified", "unverified", "synthetic", "simulated", "stale", "unavailable"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] },
+    "closedAt": { "type": ["string", "null"], "format": "date-time" },
+    "closureDecisionBy": { "type": ["string", "null"], "pattern": "^USER-[A-Z0-9-]+$" },
+    "closureEvidenceRefs": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}
