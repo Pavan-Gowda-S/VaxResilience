@@ -190,7 +190,7 @@ The platform uses a hybrid approach:
 
 ## Documentation
 
-### Phase 1: Project Foundation (Current)
+### Phase 1: Project Foundation
 - [README.md](README.md) — Project overview (this file)
 - [AGENTS.md](AGENTS.md) — AI coding agent instructions
 - [CONTRIBUTING.md](CONTRIBUTING.md) — Contribution guidelines
@@ -198,8 +198,13 @@ The platform uses a hybrid approach:
 - [docs/01_BUSINESS_PROBLEM.md](docs/01_BUSINESS_PROBLEM.md) — Business problem analysis
 - [docs/02_DEMO_SCENARIO.md](docs/02_DEMO_SCENARIO.md) — Demonstration scenario specification
 
+### Phase 2: Product Requirements and User Experience
+- [docs/03_FUNCTIONAL_REQUIREMENTS.md](docs/03_FUNCTIONAL_REQUIREMENTS.md) — Testable functional and non-functional requirements
+- [docs/USER_ROLES_AND_ACCESS.md](docs/USER_ROLES_AND_ACCESS.md) — Role profiles, permission baseline, and approval authority
+- [docs/DASHBOARD_AND_UI_SPECIFICATION.md](docs/DASHBOARD_AND_UI_SPECIFICATION.md) — Application shell, eight modules, and UI behaviour
+- [docs/USER_JOURNEYS.md](docs/USER_JOURNEYS.md) — Eleven operational user journeys
+
 ### Future Documentation Phases (Planned)
-- **Phase 2**: Product Requirements and User Experience
 - **Phase 3**: Architecture and Technology
 - **Phase 4**: AI Agents and Governance
 - **Phase 5**: Data and Integrations
@@ -207,19 +212,18 @@ The platform uses a hybrid approach:
 
 ## Current Status
 
-**Project Stage**: Documentation Foundation (Phase 1)
+**Project Stage**: Documentation Foundation (Phases 1–2)
 
-This repository contains the foundational documentation for VaxResilience. The actual application implementation will follow in subsequent phases.
+This repository contains the project foundation and Phase 2 product and user-experience specifications. The actual application implementation will follow in subsequent phases.
 
 **What exists now**:
 - Complete project specification and business context
 - Demonstration scenario definition
 - Technology stack selection
 - Human approval and governance framework
-- Documentation roadmap
+- Phase 2 functional requirements, role/access baseline, UI specification, and user journeys
 
 **What's planned**:
-- Detailed functional requirements
 - System architecture and integration design
 - AI agent design and tool specifications
 - Data model and API contracts
