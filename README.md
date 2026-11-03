@@ -114,7 +114,7 @@ The project demonstrates the platform using a fictional pharmaceutical company:
 - **Disruption**: Chinese API supplier factory shutdown causing 30-day shipment delay
 - **Available inventory**: 20 days of API stock
 - **Supply gap**: 10 days of potential uncovered production
-- **Alternative supplier**: Hyderabad-based backup supplier with 10 production days of available stock (subject to quality, regulatory, and capacity verification)
+- **Alternative supplier**: Fictional Hyderabad-based source with 500 kg (10 synthetic production days); the fixture records six passed checks and a simulated receipt for demonstration only
 - **Affected route**: Suzhou/Shanghai, China → Shanghai Port → Nhava Sheva Port, India → Hyderabad facility
 
 ### Customer Impact
@@ -204,17 +204,31 @@ The platform uses a hybrid approach:
 - [docs/DASHBOARD_AND_UI_SPECIFICATION.md](docs/DASHBOARD_AND_UI_SPECIFICATION.md) — Application shell, eight modules, and UI behaviour
 - [docs/USER_JOURNEYS.md](docs/USER_JOURNEYS.md) — Eleven operational user journeys
 
-### Future Documentation Phases (Planned)
-- **Phase 3**: Architecture and Technology
-- **Phase 4**: AI Agents and Governance
-- **Phase 5**: Data and Integrations
-- **Phase 6**: Demonstration and Project Handover
+### Phase 3: Architecture and Technology
+- [docs/04_SYSTEM_ARCHITECTURE.md](docs/04_SYSTEM_ARCHITECTURE.md) — Proposed system boundaries and components
+- [docs/TECH_STACK.md](docs/TECH_STACK.md) — SAP technology baseline and implementation constraints
+- [docs/INTEGRATION_ARCHITECTURE.md](docs/INTEGRATION_ARCHITECTURE.md) — Proposed integration boundaries and adapters
+
+### Phase 4: AI Agents and Governance
+- [docs/05_AGENT_DESIGN.md](docs/05_AGENT_DESIGN.md) — Specialist roles and orchestrator proposal
+- [docs/06_WORKFLOWS_AND_APPROVALS.md](docs/06_WORKFLOWS_AND_APPROVALS.md) — Human approval and recovery workflows
+- [docs/AGENT_TOOL_SPECIFICATIONS.md](docs/AGENT_TOOL_SPECIFICATIONS.md) — Scoped agent tools and authority boundaries
+- [docs/07_SECURITY_AND_AUDIT.md](docs/07_SECURITY_AND_AUDIT.md) — Governance, security, and audit requirements
+
+### Phase 5: Data Model and Integration Contracts
+- [docs/08_DATA_MODEL_AND_DEMO_DATA.md](docs/08_DATA_MODEL_AND_DEMO_DATA.md) — Logical model and synthetic scenario records
+- [docs/DATABASE_SCHEMA.md](docs/DATABASE_SCHEMA.md) — Proposed SAP HANA schema
+- [docs/API_CONTRACTS.md](docs/API_CONTRACTS.md) — Proposed CAP-facing API contracts
+- [docs/09_INTEGRATIONS.md](docs/09_INTEGRATIONS.md) — Integration status, boundaries, and configuration
+- [data/synthetic/](data/synthetic/) — Fictional, static demonstration fixtures
+- [data/schemas/](data/schemas/) — Draft JSON Schemas for records and API payloads
+- [.env.example](.env.example) — Safe configuration template; contains no credentials
 
 ## Current Status
 
-**Project Stage**: Documentation Foundation (Phases 1–2)
+**Project Stage**: Documentation Foundation (Phases 1–5)
 
-This repository contains the project foundation and Phase 2 product and user-experience specifications. The actual application implementation will follow in subsequent phases.
+This repository contains the project specification and Phase 1–5 design documentation and synthetic fixtures. The application, database, APIs, and external integrations are not implemented or deployed.
 
 **What exists now**:
 - Complete project specification and business context
@@ -222,13 +236,15 @@ This repository contains the project foundation and Phase 2 product and user-exp
 - Technology stack selection
 - Human approval and governance framework
 - Phase 2 functional requirements, role/access baseline, UI specification, and user journeys
+- Phase 3 architecture and integration design
+- Phase 4 agent, tool, approval, security, and audit design
+- Phase 5 logical data model, proposed database/API contracts, integration status, and synthetic fixtures
 
 **What's planned**:
-- System architecture and integration design
-- AI agent design and tool specifications
-- Data model and API contracts
 - Application implementation
-- Testing and deployment guides
+- Verified SAP service and external-provider connectivity
+- Phase 6 demonstration and project handover
+- Implementation-specific testing and deployment guides
 
 ## Demonstration Plan
 

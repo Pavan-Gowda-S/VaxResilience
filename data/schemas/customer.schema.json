@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:customer:1.0.0",
+  "title": "Synthetic customer organization",
+  "type": "object",
+  "required": ["customerId", "organizationId", "customerName", "customerType", "city", "countryCode", "customerState", "dataMode"],
+  "properties": {
+    "customerId": { "type": "string", "pattern": "^CUST-[A-Z0-9-]+$" },
+    "organizationId": { "type": "string", "pattern": "^ORG-[A-Z0-9-]+$" },
+    "customerName": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "customerType": { "enum": ["hospital", "medical_distributor", "export_importer"] },
+    "city": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "countryCode": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "customerState": { "enum": ["active", "inactive"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

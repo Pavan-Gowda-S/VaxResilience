@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vaxresilience.example/schemas/supplier-status-event.schema.json",
+  "title": "Synthetic supplier status event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["supplierStatusEventId", "supplierId", "previousState", "newState", "changedAt", "reason", "dataMode"],
+  "properties": {
+    "supplierStatusEventId": { "type": "string", "pattern": "^SSE-[A-Z0-9-]+$" },
+    "supplierId": { "type": "string", "pattern": "^SUP-[A-Z0-9-]+$" },
+    "previousState": { "enum": ["candidate", "active_demo", "qualified_demo_only", "suspended", "inactive"] },
+    "newState": { "enum": ["candidate", "active_demo", "qualified_demo_only", "suspended", "inactive"] },
+    "changedAt": { "type": "string", "format": "date-time" },
+    "reason": { "type": "string", "minLength": 1 },
+    "dataMode": { "const": "synthetic" }
+  }
+}

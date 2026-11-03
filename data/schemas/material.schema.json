@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:material:1.0.0",
+  "title": "Synthetic API or raw material",
+  "type": "object",
+  "required": ["materialId", "materialName", "materialType", "baseUnit", "materialState", "dataMode"],
+  "properties": {
+    "materialId": { "type": "string", "pattern": "^MAT-[A-Z0-9-]+$" },
+    "materialName": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "materialType": { "enum": ["api", "excipient", "packaging", "other"] },
+    "baseUnit": { "type": "string", "minLength": 1, "maxLength": 20 },
+    "materialState": { "enum": ["active", "inactive"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

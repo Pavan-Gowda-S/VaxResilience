@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:recovery-action:1.0.0",
+  "title": "Synthetic recovery action",
+  "type": "object",
+  "required": ["recoveryActionId", "recoveryPlanId", "actionType", "actionState", "targetRef", "proposalVersion", "executionRef", "evidenceRefs", "dataMode"],
+  "properties": {
+    "recoveryActionId": { "type": "string", "pattern": "^RA-[A-Z0-9-]+$" },
+    "recoveryPlanId": { "type": "string", "pattern": "^PLAN-[A-Z0-9-]+$" },
+    "actionType": { "type": "string", "minLength": 1 },
+    "actionState": { "enum": ["draft", "pending_approval", "approved", "executing", "executed_unverified", "verified", "rejected", "failed", "cancelled"] },
+    "targetRef": { "type": ["string", "null"] },
+    "proposalVersion": { "type": "integer", "minimum": 1 },
+    "executionRef": { "type": ["string", "null"] },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

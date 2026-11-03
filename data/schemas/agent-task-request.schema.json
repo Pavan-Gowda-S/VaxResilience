@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:agent-task-request:1.0.0",
+  "title": "Proposed bounded agent task request",
+  "type": "object",
+  "required": ["objective", "disruptionId", "evidenceRefs", "agentRoles", "allowedTools"],
+  "properties": {
+    "objective": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+    "agentRoles": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "enum": ["A-01", "A-02", "A-03", "A-04", "A-05"] }
+    },
+    "allowedTools": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

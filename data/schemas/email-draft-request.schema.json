@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:email-draft-request:1.0.0",
+  "title": "Proposed non-sending email draft request",
+  "type": "object",
+  "required": ["disruptionId", "recipientRef", "purpose", "verifiedFactRefs", "draftText"],
+  "properties": {
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "recipientRef": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "purpose": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "verifiedFactRefs": { "type": "array", "items": { "type": "string" } },
+    "draftText": { "type": "string", "minLength": 1, "maxLength": 10000 }
+  },
+  "additionalProperties": false
+}

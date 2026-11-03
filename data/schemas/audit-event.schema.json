@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:audit-event:1.0.0",
+  "title": "Synthetic append-only audit event",
+  "type": "object",
+  "required": ["auditEventId", "eventType", "actorType", "actorId", "roleId", "occurredAt", "recordedAt", "resourceType", "resourceId", "disruptionId", "correlationId", "proposalVersion", "resultState", "sourceRefs", "redactionState", "dataMode"],
+  "properties": {
+    "auditEventId": { "type": "string", "pattern": "^AUD-[A-Z0-9-]+$" },
+    "eventType": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "actorType": { "enum": ["human", "agent", "system", "workflow", "adapter"] },
+    "actorId": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "roleId": { "type": ["string", "null"] },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "recordedAt": { "type": "string", "format": "date-time" },
+    "resourceType": { "type": "string", "minLength": 1, "maxLength": 60 },
+    "resourceId": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "disruptionId": { "type": ["string", "null"], "pattern": "^DIS-[A-Z0-9-]+$" },
+    "correlationId": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "proposalVersion": { "type": ["integer", "null"], "minimum": 1 },
+    "resultState": { "type": "string", "minLength": 1, "maxLength": 40 },
+    "sourceRefs": { "type": "array", "items": { "type": "string" } },
+    "redactionState": { "enum": ["minimal", "redacted", "restricted"] },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

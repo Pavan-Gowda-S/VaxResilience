@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:recovery-plan-request:1.0.0",
+  "title": "Proposed recovery plan draft request",
+  "type": "object",
+  "required": ["disruptionId", "summary", "actions"],
+  "properties": {
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+    "allocationPolicyRef": { "type": ["string", "null"] },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["actionType", "evidenceRefs"],
+        "properties": {
+          "actionType": { "type": "string", "minLength": 1 },
+          "targetRef": { "type": ["string", "null"] },
+          "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+          "details": { "type": "object" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

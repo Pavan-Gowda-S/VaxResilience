@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:supplier-qualification:1.0.0",
+  "title": "Synthetic supplier qualification check",
+  "type": "object",
+  "required": ["qualificationId", "supplierId", "productId", "checkType", "checkState", "evidenceRef", "reviewedBy", "reviewedAt", "validUntil", "dataMode"],
+  "properties": {
+    "qualificationId": { "type": "string", "pattern": "^QUAL-[A-Z0-9-]+$" },
+    "supplierId": { "type": "string", "pattern": "^SUP-[A-Z0-9-]+$" },
+    "productId": { "type": "string", "pattern": "^PRD-[A-Z0-9-]+$" },
+    "checkType": { "enum": ["quality", "regulatory", "quantity", "capacity", "supplier_confirmation", "delivery"] },
+    "checkState": { "enum": ["unverified", "verified", "failed", "expired"] },
+    "evidenceRef": { "type": "string", "minLength": 1 },
+    "reviewedBy": { "type": ["string", "null"], "pattern": "^USER-[A-Z0-9-]+$" },
+    "reviewedAt": { "type": ["string", "null"], "format": "date-time" },
+    "validUntil": { "type": ["string", "null"], "format": "date" },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

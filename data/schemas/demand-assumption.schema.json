@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:demand-assumption:1.0.0",
+  "title": "Synthetic customer demand assumption",
+  "type": "object",
+  "required": ["assumptionId", "customerId", "productId", "dailyDemand", "unit", "dataMode"],
+  "properties": {
+    "assumptionId": { "type": "string", "pattern": "^DEMAND-[A-Z0-9-]+$" },
+    "customerId": { "type": ["string", "null"], "pattern": "^CUST-[A-Z0-9-]+$" },
+    "productId": { "type": "string", "pattern": "^PRD-[A-Z0-9-]+$" },
+    "dailyDemand": { "type": "number", "minimum": 0 },
+    "unit": { "const": "tablet/day" },
+    "calculation": { "type": "string", "maxLength": 300 },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}

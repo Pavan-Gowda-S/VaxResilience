@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:vaxresilience:recovery-plan:1.0.0",
+  "title": "Synthetic recovery plan",
+  "type": "object",
+  "required": ["recoveryPlanId", "disruptionId", "version", "planState", "summary", "allocationPolicyRef", "createdBy", "createdAt", "dataMode"],
+  "properties": {
+    "recoveryPlanId": { "type": "string", "pattern": "^PLAN-[A-Z0-9-]+$" },
+    "disruptionId": { "type": "string", "pattern": "^DIS-[A-Z0-9-]+$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "planState": { "enum": ["draft", "submitted", "approved_in_part", "executing", "monitoring", "completed", "cancelled"] },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+    "allocationPolicyRef": { "type": ["string", "null"] },
+    "createdBy": { "type": "string", "pattern": "^USER-[A-Z0-9-]+$" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "dataMode": { "enum": ["synthetic", "simulated", "live_verified"] }
+  },
+  "additionalProperties": false
+}
